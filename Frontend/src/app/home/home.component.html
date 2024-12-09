@@ -1,0 +1,50 @@
+<div class="container py-4">
+  <!-- Header -->
+  <div class="text-center mb-5">
+    <h1 class="display-4 text-primary fw-bold">Ticketing Dashboard</h1>
+    <p class="lead text-secondary">Track and configure the tickets seamlessly.</p>
+  </div>
+
+  <!-- Counter Box -->
+  <div class="d-flex justify-content-center">
+    <div class="card counter-card text-center">
+      <div class="display-2 text-primary" id="counter">{{ counter }}</div>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="d-flex justify-content-center mt-4 gap-3">
+    <button class="btn btn-primary px-5 py-2 rounded-pill shadow" (click)="startWebSocket()">
+      <i class="bi bi-play-fill"></i> Start
+    </button>
+    <button class="btn btn-danger px-5 py-2 rounded-pill shadow" (click)="cleanupWebSocket()">
+      <i class="bi bi-stop-fill"></i> Stop
+    </button>
+  </div>
+
+  <!-- Configuration Button -->
+  <div class="d-flex justify-content-center mt-3">
+    <a href="/config" class="btn btn-success px-5 py-2 rounded-pill shadow">
+      <i class="bi bi-gear-fill"></i> Configuration
+    </a>
+  </div>
+
+  <!-- Configuration Details -->
+  <div class="card mt-5 config-card mx-auto">
+    <h5 class="text-center mt-3 mb-3">Current Configuration</h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>Total Tickets:</strong> {{ config.totalTickets }}
+      </li>
+      <li class="list-group-item">
+        <strong>Release Rate:</strong> {{ config.releaseRate }} ms
+      </li>
+      <li class="list-group-item">
+        <strong>Buying Rate:</strong> {{ config.buyingRate }} ms
+      </li>
+      <li class="list-group-item">
+        <strong>Max Capacity:</strong> {{ config.maxCapacity }}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+/* General Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+/* Counter Card */
+.counter-card {
+  width: 220px;
+  padding: 30px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+button, a {
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover, a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active, a:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Config Card */
+.config-card {
+  width: 350px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.config-card .list-group-item {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .counter-card {
+    width: 180px;
+  }
+  .config-card {
+    width: 100%;
+  }
+}

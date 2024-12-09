@@ -1,0 +1,50 @@
+/* General Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.container {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+/* Form */
+.card {
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-control {
+  border-radius: 12px;
+  padding: 10px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+/* Buttons */
+button, a {
+  font-weight: bold;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover, a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active, a:active {
+  transform: translateY(0);
+  box-shadow: none;
+}

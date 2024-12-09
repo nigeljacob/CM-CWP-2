@@ -1,0 +1,80 @@
+<div class="container py-5">
+  <!-- Header -->
+  <div class="text-center mb-4">
+    <h2 class="display-6 text-primary fw-bold">Configuration Settings</h2>
+    <p class="text-muted">Customize your application settings below.</p>
+  </div>
+
+  <!-- Back Button -->
+  <div class="mb-4">
+    <a routerLink="/home" class="btn btn-outline-secondary">
+      <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+  </div>
+
+  <!-- Form -->
+  <form (ngSubmit)="onSubmit()" #configForm="ngForm" class="card p-4 shadow mx-auto" style="max-width: 500px;">
+    <!-- Total Tickets -->
+    <div class="mb-3">
+      <label for="totalTickets" class="form-label fw-semibold">Total Tickets:</label>
+      <input
+        type="number"
+        id="totalTickets"
+        class="form-control"
+        [(ngModel)]="config.totalTickets"
+        name="totalTickets"
+        required
+        placeholder="Enter total tickets"
+      />
+    </div>
+
+    <!-- Release Rate -->
+    <div class="mb-3">
+      <label for="releaseRate" class="form-label fw-semibold">Release Rate (ms):</label>
+      <input
+        type="number"
+        id="releaseRate"
+        class="form-control"
+        [(ngModel)]="config.releaseRate"
+        name="releaseRate"
+        required
+        placeholder="Enter release rate in milliseconds"
+      />
+    </div>
+
+    <!-- Buying Rate -->
+    <div class="mb-3">
+      <label for="buyingRate" class="form-label fw-semibold">Buying Rate (ms):</label>
+      <input
+        type="number"
+        id="buyingRate"
+        class="form-control"
+        [(ngModel)]="config.buyingRate"
+        name="buyingRate"
+        required
+        placeholder="Enter buying rate in milliseconds"
+      />
+    </div>
+
+    <!-- Max Capacity -->
+    <div class="mb-3">
+      <label for="maxCapacity" class="form-label fw-semibold">Max Capacity:</label>
+      <input
+        type="number"
+        id="maxCapacity"
+        class="form-control"
+        [(ngModel)]="config.maxCapacity"
+        name="maxCapacity"
+        required
+        placeholder="Enter maximum capacity"
+      />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary px-5 py-2 shadow">
+        <i class="bi bi-check-circle"></i> Save Configuration
+      </button>
+    </div>
+  </form>
+</div>
