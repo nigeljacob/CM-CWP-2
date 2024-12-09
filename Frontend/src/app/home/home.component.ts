@@ -13,16 +13,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   isConnected: boolean = false;
 
   config = {
-    totalTickets: 20,
-    releaseRate: 2000,
-    buyingRate: 5000,
-    maxCapacity: 10,
+    totalTickets: 0,
+    releaseRate: 0,
+    buyingRate: 0,
+    maxCapacity: 0,
   };
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
-      this.getConfiguration();
+    this.getConfiguration();
   }
 
   ngOnDestroy(): void {
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     this.socket = new WebSocket('ws://localhost:8080/start');
-    this.counter=0;
+    this.counter = 0;
 
     // When the WebSocket connection is opened
     this.socket.onopen = () => {
@@ -56,8 +56,20 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.counter++;
       } else if (type === '-') {
         this.counter--;
-      } else{
-        alert(event.data);
+      } else {
+        setTimeout(() => {
+          alert(event.data);
+        }, 500)
+      }
+
+      if (event.data === 'Trading complete') {
+        this.socket.send('stop');
+        console.log('Sent "stop" message to WebSocket server');
+
+        // Close the WebSocket connection
+        this.socket.close();
+        this.isConnected = false;
+        console.log('WebSocket connection closed');
       }
     };
 
@@ -75,7 +87,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getConfiguration() {
     fetch("http://localhost:8080/api/getConfiguration").then((res) => {
-      if(res.ok) {
+      if (res.ok) {
         res.json().then((data) => {
           this.config = {
             totalTickets: data.totalTickets,
